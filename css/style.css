@@ -172,7 +172,12 @@ button.frame {
 .infobubble p {
     text-align: center;
 }
- 
+
+.attrib {
+	font-size: .8em;
+	color: #f2f2f2;
+}
+
 @media screen and (max-width: 960px){
     
 	.main {
