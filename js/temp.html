@@ -1,0 +1,85 @@
+
+		// set url data
+		tempUrl = 'https://en.wikipedia.org/wiki/' + data.query.search[0].title;
+		finalData = textUrl1 + tempUrl + textUrl2 + park.name() + textUrl3 + '<div>' + data.query.search[0].snippet + '</div>';
+		// add snippet data
+		console.log(finalData);
+		tempData.push(finalData);
+						
+						
+		
+		// set the markers
+ 		$.each(mapInfo, function(geo){
+ 			geoloc = mapInfo[geo].geo();
+			position = new google.maps.LatLng(geoloc);
+			bounds.extend(position);
+
+		markers = new google.maps.Marker({
+			position: position,
+			map: map
+			});
+		});
+
+		//  and frame all markers so they are in the view
+		map.fitBounds(bounds);
+		
+	markerSetup: function(){
+		var bounds = new google.maps.LatLngBounds();
+		var position, markers;
+
+		// set the markers
+ 		$.each(mapInfo, function(geo){
+ 			geoloc = mapInfo[geo].geo();
+			position = new google.maps.LatLng(geoloc);
+			bounds.extend(position);
+
+		markers = new google.maps.Marker({
+			position: position,
+			map: map
+			});
+		});
+
+		//  and frame all markers so they are in the view
+		map.fitBounds(bounds);
+
+	}
+
+google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+    return function() {
+        infowindow.setContent(content);
+        infowindow.open(map,marker);
+    };
+})(marker,content,infowindow)); 
+
+
+var tempData = [];
+var textUrl1 = '<div><a href="';
+var textUrl2 = '">';
+var textUrl3 = '</div>';
+var wikiAPI1 = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=';
+var wikiAPI2 = '&srlimit=1&format=json&callback=?';
+var infoA, infoB, apiTitle, apiSnip;
+
+	// insert api data
+	self.parkList().forEach(function(park){
+//		console.log('park and x', park, x);
+			$.ajax({
+				async: false,
+				url: wikiAPI1 + park.name() + wikiAPI2,
+				dataType: "jsonp",
+				global: false,
+				success: function(data){
+					
+					apiTitle = data.query.search[0].title;
+					apiSnip = data.query.search[0].snippet;
+					infoA = textUrl1 + apiTitle + textUrl2 + apiTitle + textUrl3;
+					infoB = '<div>' + apiSnip + '</div>';
+					tmp = infoA + infoB;
+					
+					//self.processAPI().push(new parkInfo(tmp));
+					apiControl.data(data);	
+				}
+			}).error(function(){
+				$('#filter').append('<p>Could not fetch wikipedia content</p>')
+			});
+		});

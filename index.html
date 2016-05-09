@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+		<div class="row">
+			<div id="apiError"></div>	
+		</div>
+		<div class="row">
+			<div id="title" class="title">
+				<h1>20 Best Enterainment Parks of North America</h1>
+				<button id="menubutton" class="menubutton" onclick="mapControl.menu()">&#9776;</button>
+			</div>	
+		</div>
+		<div id="control" class="control">
+			<div id="filter" class="filter">
+			   <div id="form" class="form flex">
+					<input type="text" class="input" id="input" data-bind="value: filter">
+					<button class="filterbutton" data-bind="click: makeList" onclick="mapControl.filter()">Filter</button>
+					<button id="frameAll" class="frame" onclick="mapControl.frameAll()">&nbsp;</button>
+				</div>
+				<div id="list" class="list">
+					<ul data-bind="foreach: filteredParks">
+						<li data-bind="click: $root.changePark"><div class="park" data-bind="text: name"></div><div class="city" data-bind="text: location"></div></li>
+					</ul>
+				</div>
+	        </div>
+		</div>
+		<div id="main" class="main">
+			<div id="map" class="map">
+			</div>
+		</div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+		<!-- <script src="js/testmodel.js"></script> -->
+		<script src="js/model.js"></script>
+  		<script src="js/app.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG7bLdjHZ-i0ky8resth72Z81vFE3O0cc&callback=mapControl.init" async defer></script>
+    </body>
+</html>

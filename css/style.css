@@ -1,0 +1,197 @@
+/* Box Sizing */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+	background-color: #333333;
+	font-family: Sans;
+}
+
+.row {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex {
+	flex-wrap: wrap;
+}
+
+.title {
+    width: 100%;
+    color: #d2d2d2;
+    box-shadow: 0 1px 1px 1px #222222;
+    z-index: 9999;
+}
+
+.title h1 {
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 1em;
+    display: inline-block;
+}
+
+.control {
+    width: 33%;
+    margin: 0;
+    padding: 0;
+    float: left;
+    min-width: 320px;
+    overflow: hidden;
+    height: 640px;
+    max-height: 640px;
+    z-index: 99;
+    border-right: 4px solid #3498db;
+}
+
+.main {
+	width: 66%;
+	padding: 1em 0em;
+    float: right;
+}
+
+#apiError {
+    width: 100%;
+}
+
+.apierror {
+	background-color: #dd0000;
+	color: #f2f2f2;
+	width: 100%;
+    padding: 0.5em;
+}
+
+.filter {
+	color: #dddddd;
+	padding: 0 1em;
+    z-index: 999;
+    margin: 0;
+}
+
+.list {
+    max-height: 540px;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	padding: 0.5em;
+    border-bottom: 1px solid #555555;
+}
+
+.park {
+    font-size: 1em;
+}
+
+.city {
+    font-size: 0.8em;
+}
+
+.form {
+    padding: 1em 0;
+}
+
+.input {
+    width: 66%;
+    height: 1.25em;
+    font-size: 1.25em;
+    padding-left: .5em;
+    margin: 0;
+    border: 0;
+}
+
+button.filterbutton {
+    padding: 0 8px;
+    font-size: 1.2em;
+    background-color: #3498db;
+    border: 0;
+    cursor: pointer;
+}
+
+button.menubutton {
+    padding: .15em .5em 0em .5em;
+    font-size: 1.2em;
+    background-color: transparent;
+    color: #f2f2f2;
+    border: 0;
+    cursor: pointer;
+    display: none;
+}
+
+button.frame {
+	background-image: url("../img/frame.png");
+	height: 26px;
+	width: 26px;
+	cursor: pointer;
+	border: 0;
+	padding: 6px;
+	background-color: #ecf0f1;
+	background-repeat: no-repeat;
+	display: none;
+}
+
+.map {
+	position: relative;
+    float: right;
+	min-width: 100%;
+	min-height: 600px;
+}
+
+.infobubble {
+	padding: 1em;
+	min-width: 200px;
+	min-height: 2em;
+	z-index: 9999;
+}
+
+.infobubble p {
+    text-align: center;
+}
+ 
+@media screen and (max-width: 960px){
+    
+	.main {
+		width: 100%;
+		padding: 0 1em;
+	}
+    
+    .control {
+        max-width: 360px;
+        width: 360px;
+        position: absolute;
+    	background: rgba(0,0,0,.85);
+    }
+    
+    button.menubutton {
+        display: inline-block;
+    }
+    
+    button.frame {
+    	display: inline-block;
+    }
+} 
