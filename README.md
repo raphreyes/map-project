@@ -11,9 +11,7 @@ If you enter a string in the filter field and click filter, the page will show a
 ## Google Maps API
 The google map API key used in this code is authorized to run from http://raphreyes.github.io/p5-map-project.
 If you wish to host this site from your own URL you must replace the API key with your own that is authorized to run under your url.
-The API key should be replaced in the index.html file at the bottom script tag where it calls the google maps API. See line below where it says [your key here].
-
-https://maps.googleapis.com/maps/api/js?key=[your key here]&callback=mapControl.init
+The API key should be replaced in the index.html file at the bottom script tag in the url where it calls the google maps API.
 
 ## Wikipedia API
 The wikipedia API will return a result based on the park name. The infowindow in the map will show a link to the wikipedia page and a snippet from the page.
